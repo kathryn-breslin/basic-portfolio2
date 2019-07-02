@@ -9,7 +9,7 @@ var userGuesses = [];
 var blanksForRandomWord = [];
 var randomMoon = [];
 var guessesRemaining;
-var moonPhases = ["New Moon", "Waxing Crescent", "First Quarter", "Waxing Gibbous", "Full Moon", "Waning Gibbous", "Third Quarter", "Waxing Crescent"];
+var moonPhases = ["new moon", "waxing crescent", "first quarter", "waxing gibbous", "full moon", "waning gibbous", "third quarter", "waxing crescent"];
 
 //Get keypress from user
 
@@ -35,13 +35,22 @@ function startGame() {
         blanksForRandomWord.push(' __ ');
     }
     document.getElementById("moonUnderscores").innerHTML = blanksForRandomWord.join(" ");
-    
+
     document.onkeyup = function (event) {
         var userInput = event.key.toLowerCase();
         userGuesses.push(userInput);
         console.log(userGuesses)
         document.getElementById("guessesSoFar").textContent = userGuesses;
+        
         //if statement to block duplicates
+        if (randomMoon.indexOf(userInput) > -1) {
+            for (var j = 0; j < randomMoon.length; j++) {
+                if (userInput === randomMoon[j]) {
+                    blanksForRandomWord[j] = userInput;
+                    document.getElementById("moonUnderscores").innerHTML = blanksForRandomWord.join("");
+                }
+            }
+        }
     }
 
 }
