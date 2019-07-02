@@ -42,7 +42,7 @@ function startGame() {
         console.log(userGuesses)
         document.getElementById("guessesSoFar").textContent = userGuesses;
         
-        //if statement to block duplicates
+        //if statement to replace underscore with user guess, if correct
         if (randomMoon.indexOf(userInput) > -1) {
             for (var j = 0; j < randomMoon.length; j++) {
                 if (userInput === randomMoon[j]) {
