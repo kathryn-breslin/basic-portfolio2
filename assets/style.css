@@ -1,0 +1,62 @@
+#topNav {
+    background-color: gray;
+    height: 100px;
+}
+
+#topNav .name {
+    float: left;
+}
+
+#links {
+    float: right;
+}
+#links li {
+    display: inline-block;
+    margin: 10px;
+}
+
+#bodyContent {
+    background-color: gray;
+}
+footer {
+    background-color: red;
+}
+
+form {
+    background-color: blue;
+}
+
+form, textarea, input, button {
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+}
+
+/* PORTFOLIO PAGE */
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+/* body {
+    background-image: url("../assets/images/cheslen.jpg");
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: center;
+} */
+
+body {
+    background-color: black;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.container {
+    text-align: center;
+}
