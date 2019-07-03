@@ -13,20 +13,15 @@ var randomMoon = [];
 var guessesRemaining;
 var moonPhases = ["new moon", "waxing crescent", "first quarter", "waxing gibbous", "full moon", "waning gibbous", "third quarter", "waxing crescent"];
 
-//Get keypress from user
 
-// userGuesses = document.onkeyup = function(event) {
-//     // console.log(event.key);
-// }
-
-//start the game by getting a random word from the array
 function startGame() {
     wins = 0;
     losses = 0;
     guessesRemaining = 10;
-    document.getElementById("wins").textContent = wins;
-    document.getElementById("losses").textContent = losses;
-    document.getElementById("guessesRemaining").textContent = guessesRemaining;
+    document.getElementById("wins").innerHTML = wins;
+    document.getElementById("losses").innerHTML = losses;
+    document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
+
 
     randomMoon = moonPhases[Math.floor(Math.random() * moonPhases.length)];
     console.log(randomMoon);
@@ -45,11 +40,12 @@ function createUnderscores() {
 function checkUserInput() {
     document.onkeyup = function (event) {
         userInput = event.key.toLowerCase();
+        // compareFilteredToRandomWord();
+
         // userGuesses.push(userInput);
         // screenDuplicates();
         // console.log(userGuesses)
         //if statement to replace underscore with user guess, if correct
-        compareFilteredToRandomWord();
         if (randomMoon.indexOf(userInput) > -1) {
             for (var j = 0; j < randomMoon.length; j++) {
                 if (userInput === randomMoon[j]) {
@@ -58,38 +54,26 @@ function checkUserInput() {
                 }
             }
         }
+        else if (userInput !== randomMoon[j]) {
+            userGuesses.push(userInput)
+            guessesRemaining--;
+            document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
+
+            console.log("Remaining Guesses from checkUserInputFunction: " + guessesRemaining);
+            // console.log("This is a wrong letter")
+            console.log("User Guesses: " + userGuesses)
+            screenDuplicates();
+        }
     }
 }
 
-// function screenDuplicates() {
-//     filteredUserGuesses = userGuesses.filter(function (item, position) {
-//         return (userGuesses.indexOf(item) === position)
-//     });
-//     compareFilteredToRandomWord()
-//     // document.getElementById("guessesSoFar").textContent = filteredUserGuesses;
-// }
+function screenDuplicates() {
+    filteredUserGuesses = userGuesses.filter(function (item, position) {
+        return (userGuesses.indexOf(item) === position)
+    });
+    // compareFilteredToRandomWord()
+    document.getElementById("guessesSoFar").textContent = filteredUserGuesses;
 
-function compareFilteredToRandomWord () {
-    if (userGuesses.includes(userInput) === false) {
-        userGuesses.push(userInput);
-        guessesRemaining--;
-        document.getElementById("guessesSoFar").textContent = userGuesses.join(" ");
-
-    }
-    // var matches =[];
-    // var incorrects = [];
-
-    // for (var i = 0; i < filteredLetter.length; i++) {
-    //     for (var w = 0; w < randomWordLetter.length; w++) {
-    //         if (filteredLetter[i] === randomWordLetter[w]){
-    //             matches.push(filteredLetter[i]);
-    //             console.log("These are the matches to the letters in the random word: " + matches);
-    //         }
-    //         else {
-    //             console.log("Not a match:" + filteredLetter[i]);
-    //         }
-    //     }
-    // }
 }
 
 startGame();
