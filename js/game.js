@@ -3,8 +3,8 @@
 //Theme : Phases of the Moon
 
 //Define variables
-var wins;
-var losses;
+var wins = 0;
+var losses = 0;
 var userInput;
 var userGuesses = [];
 var filteredUserGuesses = [];
@@ -15,13 +15,12 @@ var moonPhases = ["new moon", "waxing crescent", "first quarter", "waxing gibbou
 
 
 function startGame() {
-    wins = 0;
-    losses = 0;
     guessesRemaining = 10;
+    blanksForRandomWord = [];
+    filteredUserGuesses = [];
     document.getElementById("wins").innerHTML = wins;
     document.getElementById("losses").innerHTML = losses;
     document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
-
 
     randomMoon = moonPhases[Math.floor(Math.random() * moonPhases.length)];
     console.log(randomMoon);
@@ -40,18 +39,20 @@ function createUnderscores() {
 function checkUserInput() {
     document.onkeyup = function (event) {
         userInput = event.key.toLowerCase();
-        // compareFilteredToRandomWord();
 
-        // userGuesses.push(userInput);
-        // screenDuplicates();
-        // console.log(userGuesses)
-        //if statement to replace underscore with user guess, if correct
         if (randomMoon.indexOf(userInput) > -1) {
             for (var j = 0; j < randomMoon.length; j++) {
                 if (userInput === randomMoon[j]) {
                     blanksForRandomWord[j] = userInput;
                     document.getElementById("moonUnderscores").innerHTML = blanksForRandomWord.join(" ");
                 }
+            }
+            if (blanksForRandomWord.includes(" __ ") == false) {
+                wins++;
+                document.getElementById("wins").innerHTML = wins;
+                console.log("You win!")
+                //Add a notice to user
+                startGame();
             }
         }
         else if (userInput !== randomMoon[j]) {
@@ -63,6 +64,13 @@ function checkUserInput() {
             // console.log("This is a wrong letter")
             console.log("User Guesses: " + userGuesses)
             screenDuplicates();
+
+            if (guessesRemaining <= 0) {
+                losses++;
+                document.getElementById("losses").innerHTML = losses;
+                console.log("You lose!")
+                startGame();
+            }
         }
     }
 }
@@ -75,6 +83,7 @@ function screenDuplicates() {
     document.getElementById("guessesSoFar").textContent = filteredUserGuesses;
 
 }
+
 
 startGame();
 
