@@ -9,13 +9,14 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Fluid jumbotron</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <h1 class="display-4">Phases of the Moon</h1>
+            <p class="lead">A Word-Guess Game for the Phases of the Moon</p>
         </div>
     </div>
     <div class="container">
@@ -24,7 +25,7 @@
                 <div class="card">
                     <h5 class="card-header">Word to Guess</h5>
                     <div class="card-body">
-                        <p id="moonUnderscores">The word with underscores will go here</p>
+                        <p id="moonUnderscores"></p>
                     </div>
                 </div>
             </div>
@@ -42,11 +43,7 @@
         </div>
         <div class="row">
             <div class="col-5">
-                <div class="card">
-                    <h5 class="card-header">Wins</h5>
-                    <div class="card-body">
-                        <h5 id="wins"></h5>
-                    </div>
+                <div class="card" id="moonImage">
                 </div>
             </div>
             <div class="col-2">
@@ -57,6 +54,17 @@
                     <h5 class="card-header">Losses</h5>
                     <div class="card-body">
                         <h5 id="losses"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-7"></div>
+            <div class="col-5">
+                <div class="card">
+                    <h5 class="card-header">Wins</h5>
+                    <div class="card-body">
+                        <h5 id="wins"></h5>
                     </div>
                 </div>
             </div>
