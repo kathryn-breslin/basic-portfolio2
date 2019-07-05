@@ -1,3 +1,39 @@
 .card {
     margin: 10px;
 }
+
+.jumbotron {
+    background-image: url("../assets/images/phasesJumbotron.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+    text-align: center;
+    color: white;
+}
+
+.jumbotron h1 {
+    font-family: 'Barriecito', cursive;
+    font-size: 130px;
+    text-align: center;
+    color: white;
+}
+
+#moonImage {
+    width: 345px;
+    margin-right: 30px;
+}
+
+.moonTitle {
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    background-color: #F7F7F7;
+}
+
+.list-group {
+    margin-bottom: 20px;
+}
+
+.moonContent {
+    padding: 30px;
+}

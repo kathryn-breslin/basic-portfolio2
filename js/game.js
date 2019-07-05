@@ -18,7 +18,6 @@ function startGame() {
     guessesRemaining = 10;
     blanksForRandomWord = [];
     filteredUserGuesses = [];
-    document.getElementById("moonImage").style.display = "none";
     document.getElementById("wins").innerHTML = wins;
     document.getElementById("losses").innerHTML = losses;
     document.getElementById("guessesRemaining").innerHTML = guessesRemaining;

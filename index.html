@@ -9,17 +9,27 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Barriecito&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Phases of the Moon</h1>
+            <h1 class="display-4">Mystery Moon</h1>
             <p class="lead">A Word-Guess Game for the Phases of the Moon</p>
         </div>
     </div>
     <div class="container">
+        <div class="row">
+            <div class="col-11">
+                <ul class="list-group">
+                    <li class="list-group-item moonTitle">Mystery Moon Word Guess Game</li>
+                    <li class="list-group-item moonContent">Your goal is to discover which moon is hidden by the underscores. Click any letter to begin! You have 10 chances to guess the word. With ever wrong guess, the remaining guesses will decrease.</li>
+                    <!-- <li class="list-group-item"></li> -->
+                </ul>
+            </div>
+        </div>
         <div class="row">
             <div class="col-5">
                 <div class="card">
@@ -29,10 +39,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2">
+            <!-- <div class="col-2">
 
-            </div>
-            <div class="col-5">
+            </div> -->
+            <div class="col-6">
                 <div class="card">
                     <h5 class="card-header">Guesses Remaining</h5>
                     <div class="card-body">
@@ -44,21 +54,34 @@
         <div class="row">
             <div class="col-5">
                 <div class="card" id="moonImage">
+                    <div class="card-body">
+                        <img src="assets/images/moon.jpg">
+                    </div>
                 </div>
             </div>
-            <div class="col-2">
-
-            </div>
-            <div class="col-5">
-                <div class="card">
-                    <h5 class="card-header">Losses</h5>
-                    <div class="card-body">
-                        <h5 id="losses"></h5>
+            <div class="col-6">
+                <div class="row">
+                    <!-- <div class="col-2"></div> -->
+                    <div class="col-12">
+                        <div class="card">
+                            <h5 class="card-header">Wins</h5>
+                            <div class="card-body">
+                                <h5 id="wins"></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <h5 class="card-header">Losses</h5>
+                            <div class="card-body">
+                                <h5 id="losses"></h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-7"></div>
             <div class="col-5">
                 <div class="card">
@@ -68,9 +91,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="row">
-            <div class="col-12">
+            <div class="col-11">
                 <div class="card">
                     <h5 class="card-header">Guesses so far</h5>
                     <div class="card-body">
