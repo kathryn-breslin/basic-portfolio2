@@ -2,7 +2,6 @@
 
 //Theme : Phases of the Moon
 
-//Define variables
 var wins = 0;
 var losses = 0;
 var userInput;
@@ -29,7 +28,6 @@ function startGame() {
 
 function createUnderscores() {
     for (var i = 0; i < randomMoon.length; i++) {
-        // console.log(randomMoon.charAt(i));
         blanksForRandomWord.push(" __ ");
     }
     document.getElementById("moonUnderscores").innerHTML = blanksForRandomWord.join(" ");
@@ -47,13 +45,7 @@ function checkUserInput() {
                     document.getElementById("moonUnderscores").innerHTML = blanksForRandomWord.join(" ");
                 }
             }
-            if (blanksForRandomWord.includes(" __ ") == false) {
-                wins++;
-                document.getElementById("wins").innerHTML = wins;
-                console.log("You win!")
-                //Add a notice to user
-                startGame();
-            }
+            checkScore();
         }
         else if (userInput !== randomMoon[j]) {
             userGuesses.push(userInput)
@@ -64,13 +56,7 @@ function checkUserInput() {
             // console.log("This is a wrong letter")
             console.log("User Guesses: " + userGuesses)
             screenDuplicates();
-
-            if (guessesRemaining <= 0) {
-                losses++;
-                document.getElementById("losses").innerHTML = losses;
-                console.log("You lose!")
-                startGame();
-            }
+            checkScore();
         }
     }
 }
@@ -79,11 +65,21 @@ function screenDuplicates() {
     filteredUserGuesses = userGuesses.filter(function (item, position) {
         return (userGuesses.indexOf(item) === position)
     });
-    // compareFilteredToRandomWord()
     document.getElementById("guessesSoFar").textContent = filteredUserGuesses;
-
 }
 
+function checkScore () {
+    if (randomMoon.indexOf(userInput) < -1) {
+        wins++;
+        document.getElementById("wins").innerHTML = wins;
+        startGame();
+    }
+    else if (guessesRemaining <= 0) {
+        losses++;
+        document.getElementById("losses").innerHTML = losses;
+        startGame();
+    }
+}
 
 startGame();
 
