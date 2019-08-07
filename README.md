@@ -1,3 +1,4 @@
-## Hangman
+## Mystery Moon Word Guess Game
 
-### Practice for Week 1 University of Pennsylvania Coding Bootcamp
+### About
+Try to guess one of the phases of the moon! You have 10 attempts to guess the correct letters in the word.
